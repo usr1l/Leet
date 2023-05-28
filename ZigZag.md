@@ -39,10 +39,40 @@ Output: "A"
 
 # Complexity
 - Time complexity:
+O(n)
 
 - Space complexity:
+O(n)
 
 # Code
 ```
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1:
+            return s
 
+        # string = list(str(s))
+        row_count = numRows + 1 if numRows % 2 == 1 else numRows
+
+        # O(m)
+        graph = ['' for i in range(row_count)]
+
+        index, increment = 0, 1
+
+
+        # use a single list to hold, and change the increment value
+        for char in s:
+            graph[index] += char
+            if index == 0:
+                step = 1
+            elif index == numRows -1:
+                step = -1
+            index += step
+
+        return ''.join(graph)
 ```
