@@ -1,13 +1,10 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        d = {}
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        matches: {} = {}
         for i, num in enumerate(nums):
-            if target - num in d:
-                return [d[target - num], i]
-            d[num] = i
+            if target - num in matches:
+                return [matches[target - num], i]
+            else:
+                matches[num] = i
+        
         return []
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
