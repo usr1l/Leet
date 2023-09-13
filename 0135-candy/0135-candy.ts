@@ -15,6 +15,6 @@ function candy(ratings: number[]): number {
             res[i - 1] = res[i] + 1;
         }
     }
-    console.log(res)
+    // console.log(res)
     return res.reduce((accum, val) => accum += val, 0);
 };
