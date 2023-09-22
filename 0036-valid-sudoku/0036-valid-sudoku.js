@@ -3,19 +3,6 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-        // let res = [];
-
-        
-        // for (let i = 0; i < 9; i++) {
-        //     for (let j = 0; j < 9; j++) {
-        //         let element = board[i][j];
-        //         if (element !== '.') {
-        //             res.push([i, element], [element, j], [Math.floor(i / 3), Math.floor(j / 3), element]);
-        //         }
-        //     }
-        // }
-
-        // return res.length === new Set(res.map( val => JSON.stringify(val))).size;
         let res = []; 
 
 
