@@ -10,8 +10,8 @@
  * }
  */
 
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     // this does not create a new node for each val, instead sets a pointer to the next node
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     const head: ListNode = new ListNode();
     let pointer: ListNode = head;
     while (list1 || list2) {
