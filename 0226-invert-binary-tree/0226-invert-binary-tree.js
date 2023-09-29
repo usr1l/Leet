@@ -11,14 +11,29 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-    if (!root) return root;
+    // if (!root) return root;
 
-    invertTree(root.left);
-    invertTree(root.right);
+    // invertTree(root.left);
+    // invertTree(root.right);
 
-    const rightNode = root.right;
-    root.right = root.left;
-    root.left = rightNode;
+    // const rightNode = root.right;
+    // root.right = root.left;
+    // root.left = rightNode;
+
+    // return root;
+
+    const stack = [root];
+
+    while (stack.length) {
+        const currNode = stack.pop();
+
+        if (currNode) {
+            const newNode = currNode.right;
+            currNode.right = currNode.left;
+            currNode.left = newNode;
+            stack.push(currNode.left, currNode.right);
+        };
+    };
 
     return root;
 };
