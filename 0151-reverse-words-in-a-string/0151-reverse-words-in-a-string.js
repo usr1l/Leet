@@ -8,7 +8,7 @@ var reverseWords = function(s) {
     for (let i = 0; i < s.length; i++) {
         // console.log(s[i] === ' ', s[i], currWord.length, currWord.length > 0)
         if (s[i] === ' ' && currWord) {
-            console.log(currWord);
+            // console.log(currWord);
             res.unshift(currWord);
             currWord = '';
 
