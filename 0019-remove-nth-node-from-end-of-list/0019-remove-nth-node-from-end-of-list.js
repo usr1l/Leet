@@ -31,7 +31,6 @@ var removeNthFromEnd = function(head, n) {
     let index = Object.keys(map).length - n;
     const node1 = map[`${index - 2}`];
     const node2 = map[`${index}`];
-    console.log(node1.next, node2)
     node1.next = node2 || null;
 
     return pointer.next;
