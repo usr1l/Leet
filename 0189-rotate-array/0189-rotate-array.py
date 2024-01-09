@@ -3,15 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        def new_position(val):
-            return (val + k) % len(nums)
+        if len(nums) == 1: 
+            return nums
 
-        mapper = {}
+        k = k % len(nums)
+        def reverse_inplace(start, end):
+            while start < end:
+                nums[start], nums[end] = nums[end], nums[start]
+                start+=1
+                end-=1
+        
+        reverse_inplace(0, len(nums)-1)
+        reverse_inplace(0, k-1)
+        reverse_inplace(k, len(nums)-1)
 
-        for i in range(len(nums)):
-            mapper[nums[i]] = new_position(i)
 
-        for key in mapper:
-            nums[mapper[key]] = key
-
-        return mapper
+        return nums
