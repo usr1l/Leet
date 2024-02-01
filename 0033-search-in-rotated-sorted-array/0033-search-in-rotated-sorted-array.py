@@ -6,7 +6,7 @@ class Solution:
         while left <= right:
             mid = (left + right) // 2
 
-            if nums[mid] == target:
+            if nums[mid] == target or nums[left] == target or nums[right] == target:
                 return mid
             if nums[left] <= nums[mid]:
                 if nums[mid] > target >= nums[left]:
