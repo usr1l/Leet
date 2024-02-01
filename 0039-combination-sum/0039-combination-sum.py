@@ -12,13 +12,14 @@ class Solution:
 
             if remainder < 0:
                 return
-
+            print(path)
             for num in candidates:
 
-                new_path = path[:]
-                new_path.append(num)
+                path.append(num)
 
-                backtrack(remainder - num, new_path)
+                backtrack(remainder - num, path)
+
+                path.pop()
             
         backtrack(target, [])
         return res
