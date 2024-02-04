@@ -14,9 +14,6 @@ class Solution:
         
             if i == next_endpoint:
                 num_jumps+=1
-                
-
-
                 next_endpoint = curr_max_range
 
         return num_jumps
