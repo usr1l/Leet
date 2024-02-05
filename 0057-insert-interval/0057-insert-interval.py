@@ -7,9 +7,9 @@ class Solution:
             if intervals[i][0] <= newInterval[0]:
                 intervals.insert(i+1, newInterval)
                 break
-            if i==0:
-                intervals.insert(0, newInterval)
             i-=1
+        if i==-1:
+            intervals.insert(0, newInterval)
         
         while index < len(intervals):
             curr_range = intervals[index]
