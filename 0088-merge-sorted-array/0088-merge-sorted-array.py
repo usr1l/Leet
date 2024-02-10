@@ -1,37 +1,25 @@
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: None Do not return anything, modify nums1 in-place instead.
+        Do not return anything, modify nums1 in-place instead.
         """
-        ## start at the end of the list
-        x = m - 1
-        y = n - 1
-        z = m + n - 1
-
-
-        while x >= 0 and y >= 0:
-            # print(nums2[y], nums1[x])
-            if nums2[y] > nums1[x]:
-                nums1[z] = nums2[y]
-                y -= 1
-
-            elif nums2[y] <= nums1[x]:
-                nums1[z] = nums1[x]
-                nums1[x] = 0
-                x -= 1
-
-            z -= 1
-        
-        nums1[:y + 1] = nums2[:y + 1]
-        
-        # if x < 0:
-        #     for i, num in enumerate(nums2):
-        #         nums1[i] = nums2[i]
-
-
-
+        # set 3 pointers starting from the ends
+        p1, p2, p3 = m-1, n-1, m+n-1
+        while p1 > -1 or p2 > -1:
+            print(p1,p2,p3, nums1[p3])
+            if p1>-1 and p2>-1:
+                if nums1[p1] >= nums2[p2]:
+                    nums1[p3] = nums1[p1]
+                    p1-=1
+                else:
+                    nums1[p3] = nums2[p2]
+                    p2-=1
+            elif p1>-1:
+                nums1[p3] = nums1[p1]
+                p1-=1
+            else:
+                nums1[p3] = nums2[p2]
+                p2-=1
+            p3-=1
+        return
 
