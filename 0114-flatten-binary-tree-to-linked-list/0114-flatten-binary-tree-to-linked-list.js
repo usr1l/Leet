@@ -11,23 +11,27 @@
  * @return {void} Do not return anything, modify root in-place instead.
  */
 var flatten = function(root) {
-    if (!root) return root;
-
-    const order = [];
-    function traversal(head) {
-        if (!head) return;
-        order.push(head);
-        traversal(head.left);
-        traversal(head.right);
-        head.left = head.right = null;
-    };
-
+    if (!root) return null;
     let pointer = root;
-    traversal(pointer);
-    pointer = root;
-    for (let i = 0; i < order.length; i++) {
-        order[i].right = order[i + 1] || null;
+
+    function traversal(root, arr=[]) {
+        if (!root) return null;
+
+        arr.push(root);
+        traversal(root.left, arr);
+        traversal(root.right, arr);
+        return arr;
     };
 
-    return root;
+    const arr = traversal(root);
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        arr[i].left = null;
+        arr[i].right = arr[i+1]
+    };
+
+    return pointer;
+
+
+
 };
