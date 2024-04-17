@@ -11,29 +11,20 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-    // if (!root) return root;
+    if (!root) return null;
+    let pointer = root;
 
-    // invertTree(root.left);
-    // invertTree(root.right);
+    function invert(root) {
+        if (!root) return ;
 
-    // const rightNode = root.right;
-    // root.right = root.left;
-    // root.left = rightNode;
+        let temp = root.left;
+        root.left = root.right;
+        root.right = temp;
 
-    // return root;
-
-    const stack = [root];
-
-    while (stack.length) {
-        const currNode = stack.pop();
-
-        if (currNode) {
-            const newNode = currNode.right;
-            currNode.right = currNode.left;
-            currNode.left = newNode;
-            stack.push(currNode.left, currNode.right);
-        };
+        invert(root.left)
+        invert(root.right);
     };
 
-    return root;
+    invert(root)
+    return pointer
 };
