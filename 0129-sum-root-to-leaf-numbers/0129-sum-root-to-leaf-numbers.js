@@ -11,14 +11,26 @@
  * @return {number}
  */
 var sumNumbers = function(root) {
-    // every time we hit a new level, the accum value is multiplied by 10, to account for new ones palce
-    function traversalSum(root, accum=0) {
-        if (!root) return 0;
-        accum = accum * 10 + root.val;
-        if (!root.right && !root.left) return accum;
+    if (!root) return 0;
+    
+    const res = []
 
-        return traversalSum(root.left, accum) + traversalSum(root.right, accum);
-    };
+    function traverse(root, num='') {
+        if (!root) return
+        num+=root.val;
+        if (!root.left && !root.right) {
+            res.push(num);
+            return;
+        };
+        // console.log(num)
+        traverse(root.left,num);
+        traverse(root.right,num);
 
-    return traversalSum(root);
+        return
+
+    }
+
+    traverse(root)
+
+    return res.reduce((accum, val) => accum + parseInt(val), 0)
 };
