@@ -9,20 +9,20 @@ class Solution:
         if not root:
             return 0
 
-        p_left=p_right=0
-        pl=pr=root
+        l = r = root
+        l_val = r_val = 0
 
-        while pl:
-            p_left+=1
-            pl=pl.left
+        while l:
+            l_val += 1
+            l = l.left
         
-        while pr:
-            p_right+=1
-            pr=pr.right
+        while r:
+            r_val += 1
+            r = r.right
 
+        if l_val == r_val:
+            return (1<<l_val) - 1
 
-        # use bitwise, because every shift doubles, check for node amount in a balanced tree
-        if p_right==p_left:
-            return (1<<p_right)-1
-        
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
+        
+
