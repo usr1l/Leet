@@ -10,5 +10,4 @@ class Solution:
 
             if mapper[nums[i]] >= math.ceil(len(nums)/2):
                 p1 = nums[i]
-                break
-        return p1
+                return p1
