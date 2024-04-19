@@ -6,7 +6,7 @@ class Solution:
                 dict1[item] = 1
             else:
                 dict1[item] += 1
-         for item in ransomNote:
+        for item in ransomNote:
             if item not in dict1:
                 return False
             else:
