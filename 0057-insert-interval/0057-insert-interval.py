@@ -12,7 +12,7 @@ class Solution:
             intervals.insert(0, newInterval)
         
         while index < len(intervals):
-            curr_range = intervals[index]
+            curr_range = intervals[index][:]
             while index < len(intervals) and intervals[index][0] <= curr_range[1]:
                 index+=1
                 if index < len(intervals) and intervals[index][0] <= curr_range[1]:
