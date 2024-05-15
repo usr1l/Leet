@@ -1,13 +1,14 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        target = len(nums) - 1
+        if len(nums) == 1:
+            return True
+        max_distance = 0
 
-        # go in reverse order, check if each point can reach the target
-        for i in range(len(nums) - 2, -1, -1):
+        for i in range(len(nums)):
+            if i > max_distance:
+                return False
+            curr_reach = i + nums[i]
+            max_distance = max(curr_reach, max_distance)
+            if max_distance >= len(nums):
+                return True
 
-            # move target to earliest index it can be reached from
-            if nums[i] + i >= target:
-                target = i
-
-        # if target can move to 0, return True
-        return True if target == 0 else False
