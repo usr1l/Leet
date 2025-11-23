@@ -1,2 +1,1 @@
-s = "fsdfasdfasdf"
-print(set(s))
+print(3//2)
