@@ -1,3 +1,7 @@
+# mid formulas:
+# mid = (l + r) // 2
+# mid = l + (r - l) // 2
+
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         if nums[0] < nums[len(nums)-1] or len(nums) == 1:
