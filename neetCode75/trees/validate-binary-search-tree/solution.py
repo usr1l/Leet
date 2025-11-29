@@ -1,4 +1,3 @@
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -12,10 +11,9 @@ class Solution:
         def isValid(node, left, right):
             if not node:
                 return True
-            if node.left and node.left.val >= node.val or node.val >= left:
+            if not (left < node.val < right):
                 return False
-            if node.right and node.right.val <= node.val or node.val <= right:
-                return False
-            return isValid(node.left, node.val, right) and isValid(node.right, left, node.val)
 
-        return isValid(root, float('inf'), -float('inf'))
+            return isValid(node.left, left, node.val) and isValid(node.right, node.val, right)
+
+        return isValid(root, float('-inf'), float('inf'))
