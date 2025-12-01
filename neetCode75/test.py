@@ -1,16 +1,32 @@
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-node1 = TreeNode(1)
-node2 = TreeNode(1)
+# node1 = TreeNode(1)
+# node2 = TreeNode(1)
 
-node1.left = TreeNode(2)
-node1.right = TreeNode(3)
+# node1.left = TreeNode(2)
+# node1.right = TreeNode(3)
 
-node2.left = TreeNode(2)
-node2.right = TreeNode(3)
+# node2.left = TreeNode(2)
+# node2.right = TreeNode(3)
 
-print(node1 == node2)  # FALSE
+# print(node1 == node2)  # FALSE
+
+l, w = 4, 4
+res = [ [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [11,12,13,14,15,16,17,18,19],
+        [21,22,23,24,25,26,27,28,29],
+        [31,32,33,34,35,36,37,38,39],
+        [41,42,43,44,45,46,47,48,49],
+        [51,52,53,54,55,56,57,58,59],
+        [61,62,63,64,65,66,67,68,69],
+        [71,72,73,74,75,76,77,78,79],
+        [81,82,83,84,85,86,87,88,89] ]
+temp = res[l][w]
+print(res, temp, res[2][2])
+
+temp, res[2][2] = res[2][2], temp
+print(res, temp, res[2][2])
